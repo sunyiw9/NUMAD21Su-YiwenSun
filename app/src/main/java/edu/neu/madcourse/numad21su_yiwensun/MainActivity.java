@@ -1,10 +1,18 @@
 package edu.neu.madcourse.numad21su_yiwensun;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,5 +31,20 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("Yiwen Sun: sun.yiw@northeastern.edu");
             }
         });
+
+        //Button to grid
+        Button buttonToGrid = (Button) findViewById(R.id.buttonGridID);
+
+        buttonToGrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity2();
+            }
+        });
+    }
+
+    public void openMainActivity2(){
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
     }
 }
