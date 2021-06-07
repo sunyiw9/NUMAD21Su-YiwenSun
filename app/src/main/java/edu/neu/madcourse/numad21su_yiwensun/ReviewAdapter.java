@@ -1,5 +1,6 @@
 package edu.neu.madcourse.numad21su_yiwensun;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -26,7 +27,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.Holder> {
     public ReviewAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
         return new Holder(view);
-
     }
 
     @Override
@@ -36,9 +36,10 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.Holder> {
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Context context = view.getContext();
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(holder.textView.getText().toString()));
-                //startActivity(intent);
+                context.startActivity(intent);
             }
         });
 

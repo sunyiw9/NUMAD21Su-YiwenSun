@@ -1,6 +1,7 @@
 package edu.neu.madcourse.numad21su_yiwensun;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +21,15 @@ public class MainActivity3 extends AppCompatActivity {
 
     EditText editText;
     //EditText editTextUrl;
-    Button btn;
+    //Button btn;
     RecyclerView recyclerView;
     List<String> listItem = new ArrayList<>();
     //private ArrayList<String> listItem = new ArrayList<>();
     ReviewAdapter adapter;
+
+    private FloatingActionButton btn;
+
+    ConstraintLayout constraintLayout;
 
 
     @Override
@@ -31,8 +39,9 @@ public class MainActivity3 extends AppCompatActivity {
 
         editText = findViewById(R.id.nameID);
         //editTextUrl = findViewById(R.id.urlID);
-        btn = findViewById(R.id.addID);
+        btn = findViewById(R.id.floatingBtnID);
         recyclerView = findViewById(R.id.recyclerViewID);
+        constraintLayout = findViewById(R.id.consLayout);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         adapter = new ReviewAdapter((ArrayList<String>) listItem);
@@ -58,6 +67,7 @@ public class MainActivity3 extends AppCompatActivity {
                         editText.setText("");
                         //editTextUrl.setText("");
                         adapter.notifyItemInserted(listItem.size()-1);
+                        Snackbar.make(constraintLayout, "Link added", Snackbar.LENGTH_SHORT).show();
                     }catch (NumberFormatException e){}
                 }
             }
