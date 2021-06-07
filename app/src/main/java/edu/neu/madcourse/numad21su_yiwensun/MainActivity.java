@@ -41,10 +41,25 @@ public class MainActivity extends AppCompatActivity {
                 openMainActivity2();
             }
         });
+
+        //Link Collector Button
+        Button linkBtn = (Button) findViewById(R.id.linkCollectorID);
+
+        linkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity3();
+            }
+        });
     }
 
     public void openMainActivity2(){
         Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+    }
+
+    public void openMainActivity3(){
+        Intent intent = new Intent(this, MainActivity3.class);
         startActivity(intent);
     }
 }
