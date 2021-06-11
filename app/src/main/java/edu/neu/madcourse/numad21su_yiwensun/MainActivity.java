@@ -51,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
                 openMainActivity3();
             }
         });
+
+        //Get Location Button
+        Button locationBtn = (Button) findViewById(R.id.locationID);
+
+        locationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity4();
+            }
+        });
     }
 
     public void openMainActivity2(){
@@ -60,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openMainActivity3(){
         Intent intent = new Intent(this, MainActivity3.class);
+        startActivity(intent);
+    }
+
+    public void openMainActivity4(){
+        Intent intent = new Intent(this, MainActivity4.class);
         startActivity(intent);
     }
 }
