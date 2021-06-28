@@ -61,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
                 openMainActivity4();
             }
         });
+
+        //At Your Service
+        Button serviceBtn = (Button) findViewById(R.id.serviceID);
+
+        serviceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity5();
+            }
+        });
     }
 
     public void openMainActivity2(){
@@ -75,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openMainActivity4(){
         Intent intent = new Intent(this, MainActivity4.class);
+        startActivity(intent);
+    }
+
+    public void openMainActivity5(){
+        Intent intent = new Intent(this, MainActivity5.class);
         startActivity(intent);
     }
 }
